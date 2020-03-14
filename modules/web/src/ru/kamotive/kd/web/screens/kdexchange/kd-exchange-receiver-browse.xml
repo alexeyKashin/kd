@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        caption="msg://browseAuthorCaption"
+        caption="msg://browseReceiverCaption"
         focusComponent="kdExchangesTable"
         messagesPack="ru.kamotive.kd.web.screens.kdexchange">
     <data readOnly="true">
@@ -9,7 +9,7 @@
                     view="kdExchange-with-all-users-view">
             <loader id="kdExchangesDl">
                 <query>
-                    <![CDATA[select e from kd_KdExchange e where e.author.id = :currentUserId]]>
+                    <![CDATA[select e from kd_KdExchange e where e.receiver.id = :currentUserId]]>
                 </query>
             </loader>
         </collection>
@@ -25,14 +25,14 @@
         </filter>
         <groupTable id="kdExchangesTable"
                     width="100%"
-                    dataContainer="kdExchangesDc"
-                    multiselect="true">
+                    dataContainer="kdExchangesDc">
             <actions>
+                <action id="edit" type="edit"/>
                 <action id="refresh" type="refresh"/>
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="receiver"/>
+                <column id="author"/>
                 <column id="startDate"/>
                 <column id="receiveDate"/>
                 <column id="documentLinks" maxTextLength="50"/>
@@ -40,6 +40,7 @@
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="editBtn" action="kdExchangesTable.edit"/>
                 <button id="refreshBtn" action="kdExchangesTable.refresh"/>
                 <button id="excelBtn" action="kdExchangesTable.excel"/>
             </buttonsPanel>

@@ -7,12 +7,11 @@ import ru.kamotive.kd.entity.KdExchange;
 
 import javax.inject.Inject;
 
-@UiController("kd_KdExchangeAuthor.browse")
-@UiDescriptor("kd-exchange-author-browse.xml")
+@UiController("kd_KdExchangeReceiver.browse")
+@UiDescriptor("kd-exchange-receiver-browse.xml")
 @LookupComponent("kdExchangesTable")
 @LoadDataBeforeShow
-public class KdExchangeAuthorBrowse extends StandardLookup<KdExchange> {
-
+public class KdExchangeReceiverBrowse extends StandardLookup<KdExchange> {
     @Inject
     private UserSession userSession;
     @Inject
