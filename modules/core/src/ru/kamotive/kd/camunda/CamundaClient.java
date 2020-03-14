@@ -1,4 +1,4 @@
-package ru.kamotive.kd;
+package ru.kamotive.kd.camunda;
 
 import com.haulmont.cuba.security.entity.User;
 import ru.kamotive.kd.dto.CamundaExchange;
