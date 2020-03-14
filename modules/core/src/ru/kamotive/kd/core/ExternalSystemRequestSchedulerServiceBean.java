@@ -19,13 +19,16 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
     private final Persistence persistence;
     private final ExternalClient externalClient;
     private final CamundaClient camundaClient;
+    private final MailSender mailSender;
     @Autowired
     public ExternalSystemRequestSchedulerServiceBean(Persistence persistence,
                                                      ExternalClient externalClient,
-                                                     CamundaClient camundaClient) {
+                                                     CamundaClient camundaClient,
+                                                     MailSender mailSender) {
         this.persistence = persistence;
         this.externalClient = externalClient;
         this.camundaClient = camundaClient;
+        this.mailSender = mailSender;
     }
 
     @Override
@@ -44,13 +47,17 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
             return;
         }
 
+        log.debug("{} документы сформированы", exchange.getId());
         persistence.runInTransaction(em -> {
             exchange.setDocumentLinks(links);
             exchange.setState(ExchangeStatus.DELIVERED);
             exchange.setReceiveDate(LocalDateTime.now());
             em.merge(exchange);
         });
+        log.debug("{} завршение шага в камунде", exchange.getId());
         camundaClient.completeRequestTask(exchange);
+        log.debug("{} отправка уведомления пользователю", exchange.getId());
+        mailSender.sendMailForSuccessKdDelivery(exchange);
     }
 
     private List<KdExchange> findExchanges() {
