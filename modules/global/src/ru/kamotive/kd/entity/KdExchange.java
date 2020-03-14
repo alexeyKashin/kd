@@ -15,6 +15,9 @@ public class KdExchange extends StandardEntity {
     @JoinColumn(name = "AUTHOR_ID")
     protected User author;
 
+    @Column(name = "STATE")
+    protected String state;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RECEIVER_ID")
     protected User receiver;
@@ -33,6 +36,14 @@ public class KdExchange extends StandardEntity {
 
     @Column(name = "EXTERNAL_ID")
     protected String externalId;
+
+    public ExchangeStatus getState() {
+        return state == null ? null : ExchangeStatus.fromId(state);
+    }
+
+    public void setState(ExchangeStatus state) {
+        this.state = state == null ? null : state.getId();
+    }
 
     public String getExternalId() {
         return externalId;

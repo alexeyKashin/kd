@@ -36,6 +36,7 @@
                 <column id="startDate"/>
                 <column id="receiveDate"/>
                 <column id="documentLinks" maxTextLength="50"/>
+                <column id="state"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

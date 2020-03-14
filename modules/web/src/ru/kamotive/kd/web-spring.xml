@@ -12,6 +12,7 @@
         <property name="remoteServices">
             <map>
                 <entry key="kd_StartProcessService" value="ru.kamotive.kd.core.StartProcessService"/>
+                <entry key="kd_ExecuteTaskService" value="ru.kamotive.kd.core.ExecuteTaskService"/>
             </map>
         </property>
     </bean>
