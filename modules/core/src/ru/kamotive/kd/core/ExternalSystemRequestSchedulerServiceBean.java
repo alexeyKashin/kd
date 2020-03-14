@@ -64,6 +64,7 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
         return persistence.callInTransaction(em -> em
                 .createQuery("select e from kd_KdExchange e where e.state = :state", KdExchange.class)
                 .setParameter("state", ExchangeStatus.IN_PROCESS)
+                .setViewName("kdExchange-with-all-users-view")
                 .getResultList());
     }
 }

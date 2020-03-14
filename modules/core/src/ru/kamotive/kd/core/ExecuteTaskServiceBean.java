@@ -22,6 +22,7 @@ public class ExecuteTaskServiceBean implements ExecuteTaskService {
      */
     @Override
     public void executeTask(KdExchange exchange) {
+        log.debug("{} завершение последнего шага", exchange.getId());
         camundaClient.completeDeliveryTask(exchange);
     }
 }
