@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="kdExchangesTable"
+        messagesPack="ru.kamotive.kd.web.screens.kdexchange">
+    <data readOnly="true">
+        <collection id="kdExchangesDc"
+                    class="ru.kamotive.kd.entity.KdExchange"
+                    view="kdExchange-with-all-users-view">
+            <loader id="kdExchangesDl">
+                <query>
+                    <![CDATA[select e from kd_KdExchange e where e.author.id = :currentUserId]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="kdExchangesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="kdExchangesTable"
+                dataLoader="kdExchangesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="kdExchangesTable"
+                    width="100%"
+                    dataContainer="kdExchangesDc"
+                    multiselect="true">
+            <actions>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="receiver"/>
+                <column id="startDate"/>
+                <column id="receiveDate"/>
+                <column id="documentLinks" maxTextLength="50"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="refreshBtn" action="kdExchangesTable.refresh"/>
+                <button id="excelBtn" action="kdExchangesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
