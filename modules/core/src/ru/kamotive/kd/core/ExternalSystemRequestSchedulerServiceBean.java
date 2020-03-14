@@ -5,10 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.kamotive.kd.camunda.CamundaClient;
 import ru.kamotive.kd.entity.ExchangeStatus;
 import ru.kamotive.kd.entity.KdExchange;
 import ru.kamotive.kd.external.ExternalClient;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service(ExternalSystemRequestSchedulerService.NAME)
@@ -16,11 +18,14 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
     private final Logger log = LoggerFactory.getLogger(ExternalSystemRequestSchedulerServiceBean.class);
     private final Persistence persistence;
     private final ExternalClient externalClient;
+    private final CamundaClient camundaClient;
     @Autowired
     public ExternalSystemRequestSchedulerServiceBean(Persistence persistence,
-                                                     ExternalClient externalClient) {
+                                                     ExternalClient externalClient,
+                                                     CamundaClient camundaClient) {
         this.persistence = persistence;
         this.externalClient = externalClient;
+        this.camundaClient = camundaClient;
     }
 
     @Override
@@ -33,7 +38,19 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
 
     private void getDocumentsLink(KdExchange exchange) {
         log.debug("Проверка обмена {}", exchange.getId());
+        String links = externalClient.getLinks();
+        if (links == null) {
+            log.debug("{} документы не сформированы", exchange.getId());
+            return;
+        }
 
+        persistence.runInTransaction(em -> {
+            exchange.setDocumentLinks(links);
+            exchange.setState(ExchangeStatus.DELIVERED);
+            exchange.setReceiveDate(LocalDateTime.now());
+            em.merge(exchange);
+        });
+        camundaClient.completeRequestTask(exchange);
     }
 
     private List<KdExchange> findExchanges() {
