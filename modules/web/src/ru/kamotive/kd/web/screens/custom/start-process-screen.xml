@@ -2,6 +2,24 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://caption"
         messagesPack="ru.kamotive.kd.web.screens.custom">
-    <layout>
+    <layout expand="filler" spacing="true">
+        <grid spacing="true">
+            <columns>
+                <column flex="0"/>
+                <column flex="1"/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="msg://user" align="MIDDLE_LEFT"/>
+                    <pickerField id="userField" metaClass="sec$User" width="400px"/>
+                </row>
+                <row>
+                    <label value="msg://inn" align="MIDDLE_LEFT"/>
+                    <textField id="innField" width="400px"/>
+                </row>
+            </rows>
+        </grid>
+        <button id="startProcessBtn" caption="msg://startProcess"/>
+        <label id="filler"/>
     </layout>
 </window>

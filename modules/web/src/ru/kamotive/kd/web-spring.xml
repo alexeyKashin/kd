@@ -7,5 +7,13 @@
     <context:component-scan base-package="ru.kamotive.kd"/>
     
     <gui:screens base-packages="ru.kamotive.kd.web"/>
+    <bean id="kd_proxyCreator" class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
+        <property name="serverSelector" ref="cuba_ServerSelector"/>
+        <property name="remoteServices">
+            <map>
+                <entry key="kd_StartProcessService" value="ru.kamotive.kd.core.StartProcessService"/>
+            </map>
+        </property>
+    </bean>
 
 </beans>
