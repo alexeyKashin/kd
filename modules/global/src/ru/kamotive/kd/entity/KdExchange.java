@@ -15,6 +15,9 @@ public class KdExchange extends StandardEntity {
     @JoinColumn(name = "AUTHOR_ID")
     protected User author;
 
+    @Column(name = "TASK_ID")
+    protected String taskId;
+
     @Column(name = "STATE")
     protected String state;
 
@@ -36,6 +39,14 @@ public class KdExchange extends StandardEntity {
 
     @Column(name = "EXTERNAL_ID")
     protected String externalId;
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
     public ExchangeStatus getState() {
         return state == null ? null : ExchangeStatus.fromId(state);

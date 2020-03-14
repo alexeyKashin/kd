@@ -5,6 +5,7 @@ import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.security.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import ru.kamotive.kd.dto.CamundaExchange;
 import ru.kamotive.kd.entity.KdExchange;
 
 import java.time.LocalDateTime;
@@ -21,12 +22,13 @@ public class KdExchangeFactory {
     }
 
 
-    public void createExchange(User author, User receiver, String instanceId, String externalId) {
+    public void createExchange(User author, User receiver, CamundaExchange camundaExchange, String externalId) {
         KdExchange kdExchange = metadata.create(KdExchange.class);
         kdExchange.setAuthor(author);
         kdExchange.setReceiver(receiver);
         kdExchange.setStartDate(LocalDateTime.now());
-        kdExchange.setProcessId(instanceId);
+        kdExchange.setProcessId(camundaExchange.getInstanceId());
+        kdExchange.setTaskId(camundaExchange.getTaskId());
         kdExchange.setExternalId(externalId);
         persistence.runInTransaction(em -> em.persist(kdExchange));
     }

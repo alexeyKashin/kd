@@ -36,7 +36,7 @@ public class StartProcessServiceBean implements StartProcessService {
             log.info("Старт процесса во внешней системе");
             String externalId = externalClient.executeStart();
             log.debug("Создание записи обмена");
-            kdExchangeFactory.createExchange(author, receiver, camundaExchange.getInstanceId(), externalId);
+            kdExchangeFactory.createExchange(author, receiver, camundaExchange, externalId);
             CamundaProcessResult camundaProcessResult = new CamundaProcessResult();
             camundaProcessResult.setResult(ProcessResult.OK);
             return camundaProcessResult;

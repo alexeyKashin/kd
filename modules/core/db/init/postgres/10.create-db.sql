@@ -10,6 +10,7 @@ create table KD_KD_EXCHANGE (
     DELETED_BY varchar(50),
     --
     AUTHOR_ID uuid,
+    TASK_ID varchar(255),
     STATE varchar(50),
     RECEIVER_ID uuid,
     START_DATE timestamp,
