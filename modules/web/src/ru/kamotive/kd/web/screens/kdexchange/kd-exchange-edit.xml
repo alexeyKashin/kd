@@ -10,8 +10,8 @@
             <loader/>
         </instance>
     </data>
-    <dialogMode height="600"
-                width="800"/>
+    <dialogMode height="AUTO"
+                width="AUTO" forceDialog="true"/>
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="kdExchangeDc">
             <column width="400px">
@@ -33,6 +33,7 @@
                 <textArea id="documentLinksField" property="documentLinks" rows="5" editable="false"/>
             </column>
         </form>
+        <button id="confirmBtn" caption="msg://confirm"/>
         <hbox id="editActions" spacing="true">
             <button action="windowCommitAndClose"/>
             <button action="windowClose"/>
