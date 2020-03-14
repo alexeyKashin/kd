@@ -13,6 +13,8 @@
             <map>
                 <entry key="kd_StartProcessService" value="ru.kamotive.kd.core.StartProcessService"/>
                 <entry key="kd_ExecuteTaskService" value="ru.kamotive.kd.core.ExecuteTaskService"/>
+                <entry key="kd_ExternalSystemRequestSchedulerService"
+                       value="ru.kamotive.kd.core.ExternalSystemRequestSchedulerService"/>
             </map>
         </property>
     </bean>
