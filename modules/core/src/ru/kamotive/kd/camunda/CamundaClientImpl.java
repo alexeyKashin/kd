@@ -131,6 +131,7 @@ public class CamundaClientImpl implements CamundaClient {
                 new HttpEntity<>("", getHeaders()), String.class);
 
         CamundaInstance[] camundaInstances = gson.fromJson(exchange.getBody(), CamundaInstance[].class);
+        log.debug("{}", camundaInstances.length);
         return Arrays.asList(camundaInstances);
     }
 

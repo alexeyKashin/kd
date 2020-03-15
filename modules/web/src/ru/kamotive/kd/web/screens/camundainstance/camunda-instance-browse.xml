@@ -7,11 +7,6 @@
         <collection id="camundaInstancesDc"
                     class="ru.kamotive.kd.entity.CamundaInstance"
                     view="_local">
-            <loader id="camundaInstancesDl">
-                <query>
-                    <![CDATA[select e from kd_CamundaInstance e]]>
-                </query>
-            </loader>
         </collection>
     </data>
     <dialogMode height="600"
@@ -25,7 +20,7 @@
                 <action id="excel" type="excel"/>
             </actions>
             <columns>
-                <column id="instanceId"/>
+                <column id="id"/>
                 <column id="definitionId"/>
                 <column id="businessKey"/>
             </columns>
