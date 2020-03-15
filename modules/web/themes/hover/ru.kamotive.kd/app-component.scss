@@ -1,0 +1,5 @@
+@import "hover-ext";
+
+@mixin ru_kamotive_kd {
+  @include ru_kamotive_kd-hover-ext;
+}
