@@ -1,0 +1,1 @@
+java -Xmx1024m -Dfile.encoding=UTF-8 -jar kd.jar -jettyEnvPath jetty-env.xml -port 8086 -stopPort 5555 -stopKey termweb
