@@ -56,18 +56,22 @@ public class CamundaClientImpl implements CamundaClient {
         // Старт процесса
         Map<String, Object> bodyVariables = ParamsMap.of("author", author.getId(),
                 "receiver", receiver.getId(), "inn", inn);
-        Map<String, Object> bodyMap = ParamsMap.of("variables", bodyVariables);
+        //Map<String, Object> bodyMap = ParamsMap.of("variables", bodyVariables);
+        Map<String, Object> bodyMap = ParamsMap.of("variables", new HashMap<>());
+        String body = gson.toJson(bodyMap);
+        log.debug(body);
 
         String startUrl = kdConfig.getCamundaRestUrl() + "process-definition/key/" + kdConfig.getCamundaProcessCode() + "/start";
+        log.debug(startUrl);
         ResponseEntity<String> startExchange = restTemplate.exchange(startUrl, HttpMethod.POST,
-                new HttpEntity<>(gson.toJson(bodyMap), headers), String.class);
+                new HttpEntity<>(body, headers), String.class);
 
         InstanceExchange instanceExchange = gson.fromJson(startExchange.getBody(), InstanceExchange.class);
-        String definitionId = instanceExchange.getDefinitionId();
-        TaskExchange taskInfo = getCurrentStepInfo(headers, definitionId);
+        String instanceId = instanceExchange.getId();
+        TaskExchange taskInfo = getCurrentStepInfo(headers, instanceId);
 
         CamundaExchange camundaExchange = new CamundaExchange();
-        camundaExchange.setInstanceId(definitionId);
+        camundaExchange.setInstanceId(instanceId);
         camundaExchange.setTaskId(taskInfo.getId());
 
         return camundaExchange;
@@ -143,7 +147,9 @@ public class CamundaClientImpl implements CamundaClient {
 
     private TaskExchange getCurrentStepInfo(HttpHeaders headers, String definitionId) {
         // Запрос текущего шага
+
         String taskUrl = kdConfig.getCamundaRestUrl() + "task?processInstanceId=" + definitionId;
+        log.debug("Запрос по url {}", taskUrl);
         ResponseEntity<String> taskExchange = restTemplate.exchange(taskUrl, HttpMethod.GET,
                 new HttpEntity<>("", headers), String.class);
         TaskExchange[] taskExchanges = gson.fromJson(taskExchange.getBody(), TaskExchange[].class);

@@ -50,7 +50,8 @@ public class StartProcessScreen extends Screen {
             return;
         }
 
-        CamundaProcessResult result = startProcessService.startProcess(userSession.getCurrentOrSubstitutedUser(), user, innField.getValue());
+        CamundaProcessResult result = startProcessService
+                .startProcess(userSession.getCurrentOrSubstitutedUser(), user, innField.getValue());
         if (result.getResult().equals(ProcessResult.OK)) {
             notifications.create().withCaption("Процесс успешно запущен")
                     .withPosition(Notifications.Position.BOTTOM_RIGHT).show();
