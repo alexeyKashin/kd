@@ -2,7 +2,10 @@ package ru.kamotive.kd.camunda;
 
 import com.haulmont.cuba.security.entity.User;
 import ru.kamotive.kd.dto.CamundaExchange;
+import ru.kamotive.kd.entity.CamundaInstance;
 import ru.kamotive.kd.entity.KdExchange;
+
+import java.util.List;
 
 public interface CamundaClient {
 
@@ -27,4 +30,10 @@ public interface CamundaClient {
      * @return
      */
     CamundaExchange completeDeliveryTask(KdExchange exchange);
+
+    /**
+     * Получить спиок активных процессов
+     * @return
+     */
+    List<CamundaInstance> getActiveInstances();
 }

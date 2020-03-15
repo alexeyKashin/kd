@@ -14,9 +14,11 @@ import ru.kamotive.kd.config.KdConfig;
 import ru.kamotive.kd.dto.CamundaExchange;
 import ru.kamotive.kd.dto.InstanceExchange;
 import ru.kamotive.kd.dto.TaskExchange;
+import ru.kamotive.kd.entity.CamundaInstance;
 import ru.kamotive.kd.entity.KdExchange;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -106,6 +108,24 @@ public class CamundaClientImpl implements CamundaClient {
         camundaExchange.setTaskId(null);
 
         return camundaExchange;
+    }
+
+    /**
+     * Получить спиок активных процессов
+     *
+     * @return
+     */
+    @Override
+    public List<CamundaInstance> getActiveInstances() {
+        String camundaRestUrl = kdConfig.getCamundaRestUrl();
+        String camundaProcessCode = kdConfig.getCamundaProcessCode();
+        String url = camundaRestUrl + "process-instance?processDefinitionKey=" + camundaProcessCode;
+
+        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET,
+                new HttpEntity<>("", getHeaders()), String.class);
+
+        CamundaInstance[] camundaInstances = gson.fromJson(exchange.getBody(), CamundaInstance[].class);
+        return List.of(camundaInstances);
     }
 
     private void completeCurrentStep(KdExchange exchange) {
