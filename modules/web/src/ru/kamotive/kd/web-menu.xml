@@ -4,6 +4,7 @@
         <item screen="kd_StartProcessScreen"/>
         <item screen="kd_KdExchangeAuthor.browse"/>
         <item screen="kd_KdExchangeReceiver.browse"/>
+        <item screen="kd_ViewFile.browse"/>
     </menu>
     <item screen="kd_AccessPlatfomConfig" insertBefore="sec$User.browse"/>
     <item screen="kd_CamundaInstance.browse" insertBefore="sec$User.browse"/>

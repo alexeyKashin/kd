@@ -3,6 +3,7 @@
 
     <metadata-model root-package="ru.kamotive.kd" namespace="kd">
         <class>ru.kamotive.kd.entity.CamundaInstance</class>
+        <class>ru.kamotive.kd.entity.ViewFile</class>
     </metadata-model>
 
 </metadata>

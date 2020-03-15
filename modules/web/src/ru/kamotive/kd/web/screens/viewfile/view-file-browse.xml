@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="viewFilesTable"
+        messagesPack="ru.kamotive.kd.web.screens.viewfile">
+    <data readOnly="true">
+        <collection id="viewFilesDc"
+                    class="ru.kamotive.kd.entity.ViewFile"
+                    view="_local">
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="split" width="100%"
+            spacing="true">
+        <split id="split" width="100%" orientation="horizontal" pos="50" settingsEnabled="false">
+            <groupBox width="100%" expand="viewFilesTable" outerMargin="false,true,false,false">
+                <groupTable id="viewFilesTable"
+                            width="100%"
+                            dataContainer="viewFilesDc">
+                    <columns>
+                        <column id="name"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                    </buttonsPanel>
+                </groupTable>
+            </groupBox>
+            <groupBox id="imgBox" width="100%" outerMargin="false,false,false,true">
+                <image id="imageField" width="100%" height="AUTO" scaleMode="SCALE_DOWN">
+
+                </image>
+            </groupBox>
+        </split>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
