@@ -4,7 +4,6 @@ import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.PickerField;
-import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.screen.Screen;
 import com.haulmont.cuba.gui.screen.Subscribe;
 import com.haulmont.cuba.gui.screen.UiController;
@@ -23,9 +22,6 @@ import javax.inject.Inject;
 @UiDescriptor("start-process-screen.xml")
 public class StartProcessScreen extends Screen {
     private Logger log = LoggerFactory.getLogger(StartProcessScreen.class);
-
-    @Inject
-    private TextField<String> innField;
     @Inject
     private PickerField<User> userField;
     @Inject
@@ -51,7 +47,7 @@ public class StartProcessScreen extends Screen {
         }
 
         CamundaProcessResult result = startProcessService
-                .startProcess(userSession.getCurrentOrSubstitutedUser(), user, innField.getValue());
+                .startProcess(userSession.getCurrentOrSubstitutedUser(), user, "");
         if (result.getResult().equals(ProcessResult.OK)) {
             notifications.create().withCaption("Процесс успешно запущен")
                     .withPosition(Notifications.Position.BOTTOM_RIGHT).show();
