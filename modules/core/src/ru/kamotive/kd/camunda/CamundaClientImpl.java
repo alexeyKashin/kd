@@ -16,6 +16,7 @@ import ru.kamotive.kd.dto.InstanceExchange;
 import ru.kamotive.kd.dto.TaskExchange;
 import ru.kamotive.kd.entity.KdExchange;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Component
@@ -78,13 +79,36 @@ public class CamundaClientImpl implements CamundaClient {
 
     /**
      * Выполнение таска с запросом
-     *
+     * Выполнить текущий таск, получить следующий
      * @param exchange
      * @return
      */
     @Override
     public CamundaExchange completeRequestTask(KdExchange exchange) {
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        String taskId = exchange.getTaskId();
+        String completeTaskUrl = kdConfig.getCamundaRestUrl() + "task/" + taskId + "/complete";
+        Map<String, Object> bodyMap = ParamsMap.of("variables", new HashMap<String, Object>());
+        String completeTaskBody = gson.toJson(bodyMap);
+
+        ResponseEntity<String> taskCompleteResponse = restTemplate.exchange(completeTaskUrl, HttpMethod.POST,
+                new HttpEntity<>(completeTaskBody, headers), String.class);
+
+        // Запрос текущего шага
+        String definitionId = exchange.getProcessId();
+        String taskUrl = kdConfig.getCamundaRestUrl() + "task?processInstanceId=" + definitionId;
+        ResponseEntity<String> taskExchange = restTemplate.exchange(taskUrl, HttpMethod.GET,
+                new HttpEntity<>("", headers), String.class);
+        TaskExchange[] taskExchanges = gson.fromJson(taskExchange.getBody(), TaskExchange[].class);
+        TaskExchange taskInfo = taskExchanges[0];
+
+        CamundaExchange camundaExchange = new CamundaExchange();
+        camundaExchange.setInstanceId(definitionId);
+        camundaExchange.setTaskId(taskInfo.getId());
+
+        return camundaExchange;
     }
 
     /**
@@ -95,6 +119,21 @@ public class CamundaClientImpl implements CamundaClient {
      */
     @Override
     public CamundaExchange completeDeliveryTask(KdExchange exchange) {
-        return null;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        String taskId = exchange.getTaskId();
+        String completeTaskUrl = kdConfig.getCamundaRestUrl() + "task/" + taskId + "/complete";
+        Map<String, Object> bodyMap = ParamsMap.of("variables", new HashMap<String, Object>());
+        String completeTaskBody = gson.toJson(bodyMap);
+
+        ResponseEntity<String> taskCompleteResponse = restTemplate.exchange(completeTaskUrl, HttpMethod.POST,
+                new HttpEntity<>(completeTaskBody, headers), String.class);
+
+        CamundaExchange camundaExchange = new CamundaExchange();
+        camundaExchange.setInstanceId(exchange.getProcessId());
+        camundaExchange.setTaskId(null);
+
+        return camundaExchange;
     }
 }

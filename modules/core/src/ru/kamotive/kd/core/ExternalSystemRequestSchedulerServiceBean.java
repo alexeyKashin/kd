@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.kamotive.kd.camunda.CamundaClient;
+import ru.kamotive.kd.dto.CamundaExchange;
 import ru.kamotive.kd.entity.ExchangeStatus;
 import ru.kamotive.kd.entity.KdExchange;
 import ru.kamotive.kd.external.ExternalClient;
@@ -48,14 +49,16 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
         }
 
         log.debug("{} документы сформированы", exchange.getId());
+        log.debug("{} завршение шага в камунде", exchange.getId());
+        CamundaExchange camundaExchange = camundaClient.completeRequestTask(exchange);
+        log.debug("{} установка переменных КД", exchange.getId());
         persistence.runInTransaction(em -> {
             exchange.setDocumentLinks(links);
             exchange.setState(ExchangeStatus.DELIVERED);
             exchange.setReceiveDate(LocalDateTime.now());
+            exchange.setTaskId(camundaExchange.getTaskId());
             em.merge(exchange);
         });
-        log.debug("{} завршение шага в камунде", exchange.getId());
-        camundaClient.completeRequestTask(exchange);
         log.debug("{} отправка уведомления пользователю", exchange.getId());
         mailSender.sendMailForSuccessKdDelivery(exchange);
     }

@@ -18,8 +18,10 @@ public class KdExchangeEdit extends StandardEditor<KdExchange> {
 
     @Subscribe("confirmBtn")
     public void onConfirmBtnClick(Button.ClickEvent event) {
-        executeTaskService.executeTask(getEditedEntity());
-        getEditedEntity().setState(ExchangeStatus.DONE);
+        KdExchange exchange = getEditedEntity();
+        executeTaskService.executeTask(exchange);
+        exchange.setState(ExchangeStatus.DONE);
+        exchange.setTaskId(null);
         commitChanges();
     }
 
