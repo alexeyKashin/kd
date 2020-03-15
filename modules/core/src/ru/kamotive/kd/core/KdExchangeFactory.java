@@ -6,6 +6,7 @@ import com.haulmont.cuba.security.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.kamotive.kd.dto.CamundaExchange;
+import ru.kamotive.kd.entity.ExchangeStatus;
 import ru.kamotive.kd.entity.KdExchange;
 
 import java.time.LocalDateTime;
@@ -30,6 +31,7 @@ public class KdExchangeFactory {
         kdExchange.setProcessId(camundaExchange.getInstanceId());
         kdExchange.setTaskId(camundaExchange.getTaskId());
         kdExchange.setExternalId(externalId);
+        kdExchange.setState(ExchangeStatus.IN_PROCESS);
         persistence.runInTransaction(em -> em.persist(kdExchange));
     }
 }

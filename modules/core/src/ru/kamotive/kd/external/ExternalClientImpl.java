@@ -35,6 +35,11 @@ public class ExternalClientImpl implements ExternalClient {
 
     @Override
     public String executeStart() {
+
+        if (kdConfig.getTestMode()) {
+            return "1";
+        }
+
         log.info("Запрос на старт процесса формирования документов");
         String startProcessUrl = kdConfig.getStartProcessUrlTemplate();
         log.debug("Запрос по url {}", startProcessUrl);
@@ -48,6 +53,11 @@ public class ExternalClientImpl implements ExternalClient {
 
     @Override
     public String getLinks(KdExchange exchange) {
+        if (kdConfig.getTestMode()) {
+            return "1";
+        }
+
+
         log.debug("{} проверка сформированных документов", exchange.getId());
         String checkStateUrlTemplate = kdConfig.getCheckStateUrlTemplate();
         String checkStateUrl = String.format(checkStateUrlTemplate, exchange.getExternalId());

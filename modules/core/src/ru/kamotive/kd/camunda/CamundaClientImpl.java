@@ -126,6 +126,7 @@ public class CamundaClientImpl implements CamundaClient {
         String camundaProcessCode = kdConfig.getCamundaProcessCode();
         String url = camundaRestUrl + "process-instance?processDefinitionKey=" + camundaProcessCode;
 
+        log.debug(url);
         ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET,
                 new HttpEntity<>("", getHeaders()), String.class);
 
