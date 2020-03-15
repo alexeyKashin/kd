@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd" messagesPack="ru.kamotive.kd.web.screens.custom"
+        extends="/com/haulmont/cuba/web/app/login/login-screen.xml">
+    <layout>
+        <vbox id="loginWrapper" stylename="login-window-background"/>
+    </layout>
+</window>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd" class="ru.kamotive.kd.web.screens.ExtAppLoginWindow"
-        messagesPack="ru.kamotive.kd.web.screens" extends="/com/haulmont/cuba/web/app/loginwindow/loginwindow.xml">
-    <dialogMode height="600" width="800"/>
-    <layout stylename="login-window-background">
-        <vbox id="loginWrapper" stylename="login-window-background"/>
-    </layout>
-</window>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="ru.kamotive.kd.web.screens.config">
+    <layout expand="accordeon" spacing="true">
+        <label value="Конфигуратор цифровой платформы Kamotive"/>
+        <accordion width="100%" id="accordeon">
+            <tab id="plmTab" caption="PLM" spacing="true" margin="true">
+                <grid width="100%" spacing="true">
+                    <columns>
+                        <column flex="0"/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="Дата с" align="MIDDLE_LEFT"/>
+                            <dateField id="plmDateFromField" datatype="date"/>
+                        </row>
+                        <row>
+                            <label value="Дата по" align="MIDDLE_LEFT"/>
+                            <dateField id="plmDateToField" datatype="date"/>
+                        </row>
+                        <row>
+                            <label value="Лоцман"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="Teamcenter"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="T-Flex PLM"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="СУПЖЦ"/>
+                            <checkBox/>
+                        </row>
+                    </rows>
+                </grid>
+            </tab>
+            <tab id="cadTab" caption="CAD" spacing="true" margin="true">
+                <grid width="100%" spacing="true">
+                    <columns>
+                        <column flex="0"/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="Дата с" align="MIDDLE_LEFT"/>
+                            <dateField datatype="date" />
+                        </row>
+                        <row>
+                            <label value="Дата по" align="MIDDLE_LEFT"/>
+                            <dateField datatype="date"/>
+                        </row>
+                        <row>
+                            <label value="T-Flex CAD"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="Solid Edge"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="NX"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="Solid Works"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="КОМПАС"/>
+                            <checkBox/>
+                        </row>
+                        <row>
+                            <label value="AutoCAD"/>
+                            <checkBox/>
+                        </row>
+                    </rows>
+                </grid>
+            </tab>
+            <tab id="caeTab" caption="CAE" spacing="true" margin="true">
+                <scrollBox>
+                    <grid width="AUTO" spacing="true">
+                        <columns>
+                            <column flex="0"/>
+                            <column flex="1"/>
+                            <column flex="0"/>
+                            <column flex="1"/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <label value="Дата с" align="MIDDLE_LEFT"/>
+                                <dateField datatype="date"/>
+                            </row>
+                            <row>
+                                <label value="Дата по" align="MIDDLE_LEFT"/>
+                                <dateField datatype="date"/>
+                            </row>
+                            <row>
+                                <label value="Solid Works"/>
+                                <checkBox/>
+                                <label value="Nastran"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="Ansys"/>
+                                <checkBox/>
+                                <label value="Mold Flow"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="Star CCM"/>
+                                <checkBox/>
+                                <label value="Flow Vision"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="Simcenter 3D"/>
+                                <checkBox/>
+                                <label value="Simcenter Amesim"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="Abaqus"/>
+                                <checkBox/>
+                                <label value="Kisssoft"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="ANSA"/>
+                                <checkBox/>
+                                <label value="AVL"/>
+                                <checkBox/>
+                            </row>
+                            <row>
+                                <label value="Fluent"/>
+                                <checkBox/>
+                                <label value="ЛОГОС"/>
+                                <checkBox/>
+                            </row>
+                        </rows>
+                    </grid>
+                </scrollBox>
+            </tab>
+            <tab id="sutrTab" caption="СУТР" spacing="true" margin="true">
+                <grid width="100%" spacing="true">
+                    <columns>
+                        <column flex="0"/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <label value="Дата с" align="MIDDLE_LEFT"/>
+                            <dateField datatype="date"/>
+                        </row>
+                        <row>
+                            <label value="Дата по" align="MIDDLE_LEFT"/>
+                            <dateField datatype="date"/>
+                        </row>
+                        <row>
+                            <label value="СУТР"/>
+                            <checkBox/>
+                        </row>
+                    </rows>
+                </grid>
+            </tab>
+        </accordion>
+        <button caption="msg://btnCaption"/>
+    </layout>
+</window>
