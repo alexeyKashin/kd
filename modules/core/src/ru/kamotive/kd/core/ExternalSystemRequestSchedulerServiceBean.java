@@ -42,7 +42,7 @@ public class ExternalSystemRequestSchedulerServiceBean implements ExternalSystem
 
     private void getDocumentsLink(KdExchange exchange) {
         log.debug("Проверка обмена {}", exchange.getId());
-        String links = externalClient.getLinks();
+        String links = externalClient.getLinks(exchange);
         if (links == null) {
             log.debug("{} документы не сформированы", exchange.getId());
             return;

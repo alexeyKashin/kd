@@ -11,6 +11,15 @@ public interface KdConfig extends Config {
     @Property("kd.camunda.restUrl")
     String getCamundaRestUrl();
 
-    @Property("kd.caminda.processCode")
+    @Property("kd.camunda.processCode")
     String getCamundaProcessCode();
+
+    @Property("kd.external.startProcessUrlTemplate")
+    String getStartProcessUrlTemplate();
+
+    @Property("kd.external.checkStateUrlTemplate")
+    String getCheckStateUrlTemplate();
+
+    @Property("kd.external.linksUrlTemplate")
+    String getLinksUrlTemplate();
 }
