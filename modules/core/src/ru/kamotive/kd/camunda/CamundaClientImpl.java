@@ -17,6 +17,7 @@ import ru.kamotive.kd.dto.TaskExchange;
 import ru.kamotive.kd.entity.CamundaInstance;
 import ru.kamotive.kd.entity.KdExchange;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -125,7 +126,7 @@ public class CamundaClientImpl implements CamundaClient {
                 new HttpEntity<>("", getHeaders()), String.class);
 
         CamundaInstance[] camundaInstances = gson.fromJson(exchange.getBody(), CamundaInstance[].class);
-        return List.of(camundaInstances);
+        return Arrays.asList(camundaInstances);
     }
 
     private void completeCurrentStep(KdExchange exchange) {

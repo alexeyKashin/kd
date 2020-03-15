@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="camundaInstancesTable"
+        messagesPack="ru.kamotive.kd.web.screens.camundainstance">
+    <data readOnly="true">
+        <collection id="camundaInstancesDc"
+                    class="ru.kamotive.kd.entity.CamundaInstance"
+                    view="_local">
+            <loader id="camundaInstancesDl">
+                <query>
+                    <![CDATA[select e from kd_CamundaInstance e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="camundaInstancesTable"
+            spacing="true">
+        <groupTable id="camundaInstancesTable"
+                    width="100%"
+                    dataContainer="camundaInstancesDc">
+            <actions>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="instanceId"/>
+                <column id="definitionId"/>
+                <column id="businessKey"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="excelBtn" action="camundaInstancesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

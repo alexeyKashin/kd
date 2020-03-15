@@ -19,6 +19,6 @@ public class GetActiveInstancesServiceBean implements GetActiveInstancesService 
 
     @Override
     public List<CamundaInstance> getActiveInstances() {
-        return null;
+        return camundaClient.getActiveInstances();
     }
 }

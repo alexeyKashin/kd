@@ -5,4 +5,5 @@
         <item screen="kd_KdExchangeAuthor.browse"/>
         <item screen="kd_KdExchangeReceiver.browse"/>
     </menu>
+    <item screen="kd_CamundaInstance.browse" insertBefore="sec$User.browse"/>
 </menu-config>
