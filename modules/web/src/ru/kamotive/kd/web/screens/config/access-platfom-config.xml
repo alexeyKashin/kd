@@ -168,6 +168,6 @@
                 </grid>
             </tab>
         </accordion>
-        <button caption="msg://btnCaption"/>
+        <button id="leftCallBtn" caption="msg://btnCaption"/>
     </layout>
 </window>

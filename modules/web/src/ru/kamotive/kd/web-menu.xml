@@ -6,6 +6,8 @@
         <item screen="kd_KdExchangeReceiver.browse"/>
         <item screen="kd_ViewFile.browse"/>
     </menu>
+    <menu id="tasks" insertBefore="administration"/>
+    <item screen="kd_DesktopIngScreen" insertBefore="administration"/>
     <item screen="kd_AccessPlatfomConfig" insertBefore="sec$User.browse"/>
     <item screen="kd_CamundaInstance.browse" insertBefore="sec$User.browse"/>
 </menu-config>
