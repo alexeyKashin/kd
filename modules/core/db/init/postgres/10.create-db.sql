@@ -33,6 +33,10 @@ create table KD_TASK (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
+    STATE integer,
+    USER_ID uuid,
+    DESCRIPTION varchar(2000),
+    --
     primary key (ID)
 )^
 -- end KD_TASK
