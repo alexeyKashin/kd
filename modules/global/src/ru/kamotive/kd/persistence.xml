@@ -3,5 +3,6 @@
     <persistence-unit name="kd" transaction-type="RESOURCE_LOCAL">
 
         <class>ru.kamotive.kd.entity.KdExchange</class>
+        <class>ru.kamotive.kd.entity.Task</class>
     </persistence-unit>
 </persistence>

@@ -22,3 +22,17 @@ create table KD_KD_EXCHANGE (
     primary key (ID)
 )^
 -- end KD_KD_EXCHANGE
+-- begin KD_TASK
+create table KD_TASK (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    primary key (ID)
+)^
+-- end KD_TASK
