@@ -2,30 +2,24 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://caption"
         messagesPack="ru.kamotive.kd.web.screens.custom">
-    <layout>
-        <split orientation="vertical" height="100%" width="100%">
-            <vbox>
-                <label value="СУТР"/>
-            </vbox>
-            <vbox>
-                <link icon="te.jpeg" url="http://kamaz-rms.kodeks.ru/requirement/api/export/b8a5a37a-df91-41b6-9068-3d679bfddff4?format=pdf&amp;header=%D0%A2%D1%8F%D0%B3%D0%B0%D1%87%20%D0%9A%D0%90%D0%9C%D0%90%D0%97&amp;subheader=&amp;_progressid=j9ur_PeFXW5n4dSCK3VG3&amp;excluded=%5B%5D"/>
-            </vbox>
-        </split>
-        <split orientation="vertical" height="100%" width="100%">
-            <vbox><label value="CAD"/></vbox>
-            <vbox><link icon="nx.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/iRdybHetW/NX.rdp"/></vbox>
-        </split>
-        <split orientation="vertical" height="100%" width="100%">
-            <vbox><label value="CAE"/></vbox>
-            <grid spacing="true">
-                <columns count="2"/>
-                <rows>
-                    <row>
-                        <link icon="sc.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/a7afk67ap/SC.rdp"/>
-                        <link icon="amesim.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/lih4VKms4/AMESim.rdp"/>
-                    </row>
-                </rows>
-            </grid>
-        </split>
+    <layout expand="desktopGrid">
+        <grid id="desktopGrid" spacing="true" width="100%">
+            <columns count="3"/>
+            <rows>
+                <row>
+                    <label value="СУТР"/>
+                    <link icon="te.jpeg" url="http://kamaz-rms.kodeks.ru/requirement/api/export/b8a5a37a-df91-41b6-9068-3d679bfddff4?format=pdf&amp;header=%D0%A2%D1%8F%D0%B3%D0%B0%D1%87%20%D0%9A%D0%90%D0%9C%D0%90%D0%97&amp;subheader=&amp;_progressid=j9ur_PeFXW5n4dSCK3VG3&amp;excluded=%5B%5D"/>
+                </row>
+                <row>
+                    <label value="CAD"/>
+                    <link icon="nx.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/iRdybHetW/NX.rdp" colspan="2"/>
+                </row>
+                <row>
+                    <label value="CAE"/>
+                    <link icon="sc.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/a7afk67ap/SC.rdp"/>
+                    <link icon="amesim.jpeg" url="https://mail.advengineering.ru:5001/fsdownload/lih4VKms4/AMESim.rdp"/>
+                </row>
+            </rows>
+        </grid>
     </layout>
 </window>
