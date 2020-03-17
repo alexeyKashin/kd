@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
-        caption="msg://captionKd"
+        caption="msg://caption"
         messagesPack="ru.kamotive.kd.web.screens.custom">
     <layout expand="filler" spacing="true">
         <grid spacing="true">
@@ -10,10 +10,6 @@
             </columns>
             <rows>
                 <row>
-                    <label value="msg://user" align="MIDDLE_LEFT"/>
-                    <pickerField id="userField" metaClass="sec$User" width="400px"/>
-                </row>
-                <row>
                     <label value="msg://executor" align="MIDDLE_LEFT"/>
                     <pickerField id="executorField" metaClass="sec$User" width="400px"/>
                 </row>
@@ -21,7 +17,7 @@
         </grid>
         <button id="startProcessBtn" caption="msg://startProcess"/>
         <image>
-            <classpath path="ru/kamotive/kd/web/screens/custom/process.png"/>
+            <classpath path="ru/kamotive/kd/web/screens/custom/process2.png"/>
         </image>
         <label id="filler"/>
     </layout>

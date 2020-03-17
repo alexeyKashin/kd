@@ -20,6 +20,17 @@ public class Task extends StandardEntity {
     @Column(name = "DESCRIPTION", length = 2000)
     protected String description;
 
+    @Column(name = "SUMMARY")
+    protected String summary;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     public String getDescription() {
         return description;
     }
