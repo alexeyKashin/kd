@@ -42,6 +42,7 @@
                     </actions>
                     <columns>
                         <column id="state"/>
+                        <column id="summary"/>
                         <column id="description"/>
                     </columns>
                     <rowsCount/>
@@ -62,6 +63,7 @@
                     <form id="form" dataContainer="taskDc">
                         <column width="250px">
                             <lookupField id="stateField" property="state"/>
+                            <textField id="summaryField" property="summary"/>
                             <textArea id="descriptionField" property="description"/>
                         </column>
                     </form>
