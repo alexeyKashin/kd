@@ -2,6 +2,7 @@ package ru.kamotive.kd.web.screens.custom;
 
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.Metadata;
+import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
 import com.haulmont.cuba.gui.components.PickerField;
 import com.haulmont.cuba.gui.screen.Screen;
@@ -28,6 +29,9 @@ public class StartCountScreen extends Screen {
     private DataManager dataManager;
     @Inject
     private UserSession userSession;
+
+    @Inject
+    private Notifications notifications;
 
     @Subscribe("startProcessBtn")
     public void onStartProcessBtnClick(Button.ClickEvent event) {
@@ -62,6 +66,9 @@ public class StartCountScreen extends Screen {
         newTask.setState(TaskStatusEnum.NEW);
 
         dataManager.commit(newTask);
+
+        notifications.create().withCaption("Процесс запущен успешно!").show();
+        closeWithDefaultAction();
     }
 
 
