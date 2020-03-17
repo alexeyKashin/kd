@@ -25,9 +25,9 @@ public class ExternalClientImpl implements ExternalClient {
         this.kdConfig = kdConfig;
 
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setConnectionRequestTimeout(2000);
-        factory.setConnectTimeout(2000);
-        factory.setReadTimeout(2000);
+        factory.setConnectionRequestTimeout(20000);
+        factory.setConnectTimeout(20000);
+        factory.setReadTimeout(20000);
 
         this.restTemplate = new RestTemplate(factory);
     }
