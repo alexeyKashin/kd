@@ -1,0 +1,98 @@
+[
+  {
+    "_entityName": "sec$Role",
+    "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825",
+    "securityScope": "GENERIC_UI",
+    "locName": "соразработчик",
+    "type": "STANDARD",
+    "version": 1,
+    "locSecurityScope": "Generic UI",
+    "permissions": [
+      {
+        "_entityName": "sec$Permission",
+        "id": "6386657f-6ab4-35eb-11bf-5f6e01aadf0d",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_KdExchangeAuthor.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "9786eaf2-f7f6-688e-720c-76645e1dfd48",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_ViewFile.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "2bd91468-927b-f52e-a5a8-c592d8a29408",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_DesctopConsScreen"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "930c1cfb-09ca-d3b1-4cb6-80aa3a9fb83a",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_KdExchangeReceiver.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "efe294ed-ec45-4748-0939-ca44b9f25578",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_Task.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "8041e48c-c403-c406-5ae6-d4effd37c35b",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_StartProcessScreen"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "8512bb88-8a8f-f244-12ab-ccb0abd5b400",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "6c23e277-d920-6cc0-37ca-f9826a2b3825"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "application-kd"
+      }
+    ],
+    "name": "codeveloper"
+  }
+]

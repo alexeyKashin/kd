@@ -1,0 +1,98 @@
+[
+  {
+    "_entityName": "sec$Role",
+    "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb",
+    "securityScope": "GENERIC_UI",
+    "locName": "инженер-конструктор",
+    "type": "STANDARD",
+    "version": 1,
+    "locSecurityScope": "Generic UI",
+    "permissions": [
+      {
+        "_entityName": "sec$Permission",
+        "id": "18d08242-25a5-e411-14e6-4b1928a31c5a",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_KdExchangeReceiver.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "bd4db8e5-c779-1a99-d3c5-c0f58a16f78f",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_Task.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "0b91dadd-910c-97e7-e3db-eddf4ac5ed72",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_DesktopIngScreen"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "991ec8cd-385b-4f80-3daf-05c3dec61157",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_KdExchangeAuthor.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "e489acff-feab-bee1-9a99-b5f6b0c230e6",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_StartProcessScreen"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "9582aa16-c308-9a19-cad0-a1dcbe6d6ffc",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "kd_ViewFile.browse"
+      },
+      {
+        "_entityName": "sec$Permission",
+        "id": "8a8c1d47-5d1b-a5bf-f4a5-0b0bb58af352",
+        "role": {
+          "_entityName": "sec$Role",
+          "id": "1fbe3de4-64fe-7394-51ac-648fd58077fb"
+        },
+        "type": "SCREEN",
+        "version": 1,
+        "value": 1,
+        "target": "application-kd"
+      }
+    ],
+    "name": "engineer"
+  }
+]
