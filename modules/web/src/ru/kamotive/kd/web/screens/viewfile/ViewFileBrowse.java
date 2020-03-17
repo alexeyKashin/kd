@@ -2,6 +2,7 @@ package ru.kamotive.kd.web.screens.viewfile;
 
 import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.components.BrowserFrame;
 import com.haulmont.cuba.gui.components.ClasspathResource;
 import com.haulmont.cuba.gui.components.Image;
 import com.haulmont.cuba.gui.model.CollectionContainer;
@@ -24,7 +25,8 @@ public class ViewFileBrowse extends StandardLookup<ViewFile> {
     private Metadata metadata;
     @Inject
     private Notifications notifications;
-
+    @Inject
+    private BrowserFrame browseFrame;
 
     @Subscribe
     public void onBeforeShow(BeforeShowEvent event) {
@@ -49,11 +51,33 @@ public class ViewFileBrowse extends StandardLookup<ViewFile> {
         corpusFile.setName("Corpus.prt");
         corpusFile.setLink("ru/kamotive/kd/web/screens/viewfile/1.jpg");
         viewFilesDc.getMutableItems().add(corpusFile);
+
+        ViewFile kronshtain = metadata.create(ViewFile.class);
+        kronshtain.setName("Kronshtein.3D");
+        kronshtain.setLink("ru/kamotive/kd/web/screens/viewfile/Kronshtein.html");
+        viewFilesDc.getMutableItems().add(kronshtain);
+
+        ViewFile kronshtainGeom = metadata.create(ViewFile.class);
+        kronshtainGeom.setName("Kronshtein_geom.3D");
+        kronshtainGeom.setLink("ru/kamotive/kd/web/screens/viewfile/Kronshtein_Geom.html");
+        viewFilesDc.getMutableItems().add(kronshtainGeom);
+
+        imageField.setVisible(false);
+        browseFrame.setVisible(false);
     }
 
     @Subscribe(id = "viewFilesDc", target = Target.DATA_CONTAINER)
     public void onViewFilesDcItemChange(InstanceContainer.ItemChangeEvent<ViewFile> event) {
-        imageField.setSource(ClasspathResource.class).setPath(viewFilesDc.getItem().getLink());
+        String path = viewFilesDc.getItem().getLink();
+        if (path.contains("jpg")) {
+            imageField.setVisible(true);
+            imageField.setSource(ClasspathResource.class).setPath(path);
+            browseFrame.setVisible(false);
+        } else {
+            browseFrame.setVisible(true);
+            browseFrame.setSource(ClasspathResource.class).setPath(path);
+            imageField.setVisible(false);
+        }
     }
 
 
