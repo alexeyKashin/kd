@@ -36,6 +36,7 @@ create table KD_TASK (
     STATE integer,
     USER_ID uuid,
     DESCRIPTION varchar(2000),
+    SUMMARY varchar(255),
     --
     primary key (ID)
 )^

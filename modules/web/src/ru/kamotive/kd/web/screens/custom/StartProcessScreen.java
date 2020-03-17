@@ -1,5 +1,7 @@
 package ru.kamotive.kd.web.screens.custom;
 
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.Metadata;
 import com.haulmont.cuba.gui.Dialogs;
 import com.haulmont.cuba.gui.Notifications;
 import com.haulmont.cuba.gui.components.Button;
@@ -15,6 +17,8 @@ import org.slf4j.LoggerFactory;
 import ru.kamotive.kd.core.StartProcessService;
 import ru.kamotive.kd.dto.CamundaProcessResult;
 import ru.kamotive.kd.dto.ProcessResult;
+import ru.kamotive.kd.entity.Task;
+import ru.kamotive.kd.entity.TaskStatusEnum;
 
 import javax.inject.Inject;
 
@@ -32,6 +36,12 @@ public class StartProcessScreen extends Screen {
     private StartProcessService startProcessService;
     @Inject
     private Notifications notifications;
+    @Inject
+    private DataManager dataManager;
+    @Inject
+    private Metadata metadata;
+    @Inject
+    private PickerField<User> executorField;
 
     @Subscribe("startProcessBtn")
     public void onStartProcessBtnClick(Button.ClickEvent event) {
@@ -56,6 +66,31 @@ public class StartProcessScreen extends Screen {
                     .withPosition(Notifications.Position.BOTTOM_RIGHT).show();
             log.error(result.getMessage());
         }
+
+        Task newTask = metadata.create(Task.class);
+        newTask.setUser(executorField.getValue());
+        newTask.setSummary("Создать заявку");
+        newTask.setDescription("Создать корректную заявку на КД");
+        newTask.setState(TaskStatusEnum.NEW);
+
+        dataManager.commit(newTask);
+
+        newTask = metadata.create(Task.class);
+        newTask.setUser(executorField.getValue());
+        newTask.setSummary("Подготовить требования");
+        newTask.setDescription("Подготовить требования");
+        newTask.setState(TaskStatusEnum.NEW);
+
+        dataManager.commit(newTask);
+
+        newTask = metadata.create(Task.class);
+        newTask.setUser(userField.getValue());
+        newTask.setSummary("Подтвержить получение");
+        newTask.setDescription("Подготовить требования");
+        newTask.setState(TaskStatusEnum.NEW);
+
+        dataManager.commit(newTask);
+
         closeWithDefaultAction();
 
     }

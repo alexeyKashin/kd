@@ -2,6 +2,7 @@
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
     <menu id="application-kd" insertBefore="administration">
         <item screen="kd_StartProcessScreen"/>
+        <item screen="kd_StartCountScreen"/>
         <item screen="kd_KdExchangeAuthor.browse"/>
         <item screen="kd_KdExchangeReceiver.browse"/>
         <item screen="kd_ViewFile.browse"/>

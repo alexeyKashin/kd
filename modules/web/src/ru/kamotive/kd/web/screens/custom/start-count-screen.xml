@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="ru.kamotive.kd.web.screens.custom">
+    <layout expand="filler" spacing="true">
+        <grid spacing="true">
+            <columns>
+                <column flex="0"/>
+                <column flex="1"/>
+            </columns>
+            <rows>
+                <row>
+                    <label value="msg://executor" align="MIDDLE_LEFT"/>
+                    <pickerField id="executorField" metaClass="sec$User" width="400px"/>
+                </row>
+            </rows>
+        </grid>
+        <button id="startProcessBtn" caption="msg://startProcess"/>
+        <image>
+            <classpath path="ru/kamotive/kd/web/screens/custom/process2.png"/>
+        </image>
+        <label id="filler"/>
+    </layout>
+</window>
