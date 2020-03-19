@@ -22,6 +22,8 @@ public class TaskBrowse extends MasterDetailScreen<Task> {
     @Inject
     private CollectionLoader<Task> tasksDl;
     @Inject
+    private CollectionContainer<Task> tasksDc;
+    @Inject
     private GroupTable<Task> table;
 
     @Inject
@@ -48,6 +50,8 @@ public class TaskBrowse extends MasterDetailScreen<Task> {
             task.setState(TaskStatusEnum.DONE);
             dataManager.commit(task);
         }
+
+        tasksDl.load();
     }
     
     

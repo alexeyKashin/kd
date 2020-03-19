@@ -37,6 +37,9 @@ create table KD_TASK (
     USER_ID uuid,
     DESCRIPTION varchar(2000),
     SUMMARY varchar(255),
+    BP_CODE varchar(255),
+    TASK_CODE varchar(255),
+    INITIATOR_ID uuid,
     --
     primary key (ID)
 )^

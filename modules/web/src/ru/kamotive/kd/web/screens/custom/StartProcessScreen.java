@@ -69,6 +69,7 @@ public class StartProcessScreen extends Screen {
 
         Task newTask = metadata.create(Task.class);
         newTask.setUser(executorField.getValue());
+        newTask.setInitiator(userField.getValue());
         newTask.setSummary("Создать заявку");
         newTask.setDescription("Создать корректную заявку на КД");
         newTask.setState(TaskStatusEnum.NEW);
