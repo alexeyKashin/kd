@@ -12,6 +12,7 @@ import ru.kamotive.kd.entity.KdExchange;
 import ru.kamotive.kd.web.screens.viewfile.ViewFileBrowse;
 
 import javax.inject.Inject;
+import java.text.SimpleDateFormat;
 
 @UiController("kd_KdExchangeReceiver.browse")
 @UiDescriptor("kd-exchange-receiver-browse.xml")
@@ -44,7 +45,10 @@ public class KdExchangeReceiverBrowse extends StandardLookup<KdExchange> {
                     .withScreenClass(ViewFileBrowse.class)
                     .build();
 
-            viewFileBrowse.setProcessName("Передача КД");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+            viewFileBrowse.setProcessName("ID: " + kdExchange.getId() + ", получатель: " + kdExchange.getReceiver().getName()
+                    + ", отправитель: " + kdExchange.getAuthor().getName() + ", дата запуска: "
+                    + sdf.format(kdExchange.getStartDate()) + ", дата получения: " + sdf.format(kdExchange.getReceiveDate()));
             viewFileBrowse.setFileString(kdExchange.getDocumentLinks());
             viewFileBrowse.show();
         } else {

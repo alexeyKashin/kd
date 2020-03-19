@@ -55,22 +55,6 @@ public class ViewFileBrowse extends StandardLookup<ViewFile> {
 
             // ru/kamotive/kd/web/screens/img/
 
-            ViewFile lopatkaFile = metadata.create(ViewFile.class);
-            lopatkaFile.setName("Lopatka.sim");
-            lopatkaFile.setLink("ru/kamotive/kd/web/screens/viewfile/3.jpg");
-            viewFilesDc.getMutableItems().add(lopatkaFile);
-
-            ViewFile plankaFile = metadata.create(ViewFile.class);
-            plankaFile.setName("Planka.dvg");
-            plankaFile.setLink("ru/kamotive/kd/web/screens/viewfile/2.jpg");
-            viewFilesDc.getMutableItems().add(plankaFile);
-
-
-            ViewFile corpusFile = metadata.create(ViewFile.class);
-            corpusFile.setName("Corpus.prt");
-            corpusFile.setLink("ru/kamotive/kd/web/screens/viewfile/1.jpg");
-            viewFilesDc.getMutableItems().add(corpusFile);
-
             ViewFile kronshtain = metadata.create(ViewFile.class);
             kronshtain.setName("Kronshtein.3D");
             kronshtain.setLink("ru/kamotive/kd/web/screens/viewfile/Kronshtein.html");

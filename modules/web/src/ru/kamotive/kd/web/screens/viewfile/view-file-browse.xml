@@ -17,7 +17,7 @@
                 width="800"/>
     <layout expand="tabSheet" width="100%"
             spacing="true">
-        <label id="kdNameLbl"/>
+        <label id="kdNameLbl" stylename="h2"/>
         <tabSheet id="tabSheet" width="100%">
             <tab id="mainFileView" spacing="true" expand="split" caption="Просмотр файлов">
                 <split id="split" width="100%" orientation="horizontal" pos="50" settingsEnabled="false">
