@@ -30,6 +30,7 @@
                 <action id="edit" type="edit"/>
                 <action id="refresh" type="refresh"/>
                 <action id="excel" type="excel"/>
+                <action id="showData"/>
             </actions>
             <columns>
                 <column id="author"/>
@@ -44,6 +45,7 @@
                 <button id="editBtn" action="kdExchangesTable.edit"/>
                 <button id="refreshBtn" action="kdExchangesTable.refresh"/>
                 <button id="excelBtn" action="kdExchangesTable.excel"/>
+                <button id="showDataTbl" action="kdExchangesTable.showData" caption="Показать данные"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

@@ -8,33 +8,67 @@
                     class="ru.kamotive.kd.entity.ViewFile"
                     view="_local">
         </collection>
+        <collection id="viewFilesDc2"
+                    class="ru.kamotive.kd.entity.ViewFile"
+                    view="_local">
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="split" width="100%"
+    <layout expand="tabSheet" width="100%"
             spacing="true">
-        <split id="split" width="100%" orientation="horizontal" pos="50" settingsEnabled="false">
-            <groupBox width="100%" expand="viewFilesTable" outerMargin="false,true,false,false">
-                <groupTable id="viewFilesTable"
-                            width="100%"
-                            dataContainer="viewFilesDc">
-                    <columns>
-                        <column id="name"/>
-                    </columns>
-                    <rowsCount/>
-                    <buttonsPanel id="buttonsPanel"
-                                  alwaysVisible="true">
-                    </buttonsPanel>
-                </groupTable>
-            </groupBox>
-            <groupBox id="imgBox" width="100%" outerMargin="false,false,false,true" height="100%">
-                <image id="imageField" width="100%" height="AUTO" scaleMode="SCALE_DOWN"/>
-                <browserFrame id = "browseFrame" width="100%" height="100%"/>
-            </groupBox>
-        </split>
-        <hbox id="lookupActions" spacing="true" visible="false">
-            <button action="lookupSelectAction"/>
-            <button action="lookupCancelAction"/>
-        </hbox>
+        <label id="kdNameLbl"/>
+        <tabSheet id="tabSheet" width="100%">
+            <tab id="mainFileView" spacing="true" expand="split" caption="Просмотр файлов">
+                <split id="split" width="100%" orientation="horizontal" pos="50" settingsEnabled="false">
+                    <groupBox width="100%" expand="viewFilesTable" outerMargin="false,true,false,false">
+                        <groupTable id="viewFilesTable"
+                                    width="100%"
+                                    dataContainer="viewFilesDc">
+                            <columns>
+                                <column id="name"/>
+                            </columns>
+                            <rowsCount/>
+                            <buttonsPanel id="buttonsPanel"
+                                          alwaysVisible="true">
+                            </buttonsPanel>
+                        </groupTable>
+                    </groupBox>
+                    <groupBox id="imgBox" width="100%" outerMargin="false,false,false,true" height="100%">
+                        <image id="imageField" width="100%" height="AUTO" scaleMode="SCALE_DOWN"/>
+                        <browserFrame id = "browseFrame" width="100%" height="100%"/>
+                    </groupBox>
+                </split>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </tab>
+            <tab id="dopFileView" spacing="true" expand="split2" caption="Дополнительные данные">
+                <split id="split2" width="100%" orientation="horizontal" pos="50" settingsEnabled="false">
+                    <groupBox width="100%" expand="viewFilesTable2" outerMargin="false,true,false,false">
+                        <groupTable id="viewFilesTable2"
+                                    width="100%"
+                                    dataContainer="viewFilesDc2">
+                            <columns>
+                                <column id="name"/>
+                            </columns>
+                            <rowsCount/>
+                            <buttonsPanel id="buttonsPanel2"
+                                          alwaysVisible="true">
+                            </buttonsPanel>
+                        </groupTable>
+                    </groupBox>
+                    <groupBox id="imgBox2" width="100%" outerMargin="false,false,false,true" height="100%">
+<!--                        <image id="imageField" width="100%" height="AUTO" scaleMode="SCALE_DOWN"/>-->
+<!--                        <browserFrame id = "browseFrame" width="100%" height="100%"/>-->
+                    </groupBox>
+                </split>
+                <hbox id="lookupActions2" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </tab>
+        </tabSheet>
     </layout>
 </window>
