@@ -6,7 +6,7 @@
     <data>
         <collection id="tasksDc"
                     class="ru.kamotive.kd.entity.Task"
-                    view="_local">
+                    view="task-view">
             <loader id="tasksDl">
                 <query>
                     <![CDATA[select e from kd_Task e]]>
@@ -15,7 +15,7 @@
         </collection>
         <instance id="taskDc"
                   class="ru.kamotive.kd.entity.Task"
-                  view="_local">
+                  view="task-view">
             <loader/>
         </instance>
     </data>
@@ -33,12 +33,12 @@
                 <groupTable id="table"
                             width="100%"
                             dataContainer="tasksDc"
-                            multiselect="true"
                             presentations="true">
                     <actions>
                         <action id="edit" type="edit"/>
                         <action id="refresh" type="refresh"/>
                         <action id="create" type="create"/>
+                        <action id="endTask" trackSelection="true"/>
                     </actions>
                     <columns>
                         <column id="state"/>
@@ -50,7 +50,8 @@
                                   alwaysVisible="true">
                         <button id="editBtn" action="table.edit"/>
                         <button id="refreshBtn" action="table.refresh"/>
-                        <button id="createBtn" action="table.create"/>
+                        <button id="createBtn" action="table.create" visible="false"/>
+                        <button id="endTask" action="table.endTask" caption="msg://endTaskBtn"/>
                     </buttonsPanel>
                 </groupTable>
                 <hbox id="lookupActions" spacing="true" visible="false">

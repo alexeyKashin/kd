@@ -72,22 +72,8 @@ public class StartProcessScreen extends Screen {
         newTask.setSummary("Создать заявку");
         newTask.setDescription("Создать корректную заявку на КД");
         newTask.setState(TaskStatusEnum.NEW);
-
-        dataManager.commit(newTask);
-
-        newTask = metadata.create(Task.class);
-        newTask.setUser(executorField.getValue());
-        newTask.setSummary("Подготовить требования");
-        newTask.setDescription("Подготовить требования");
-        newTask.setState(TaskStatusEnum.NEW);
-
-        dataManager.commit(newTask);
-
-        newTask = metadata.create(Task.class);
-        newTask.setUser(userField.getValue());
-        newTask.setSummary("Подтвержить получение");
-        newTask.setDescription("Подготовить требования");
-        newTask.setState(TaskStatusEnum.NEW);
+        newTask.setBpCode("process");
+        newTask.setTaskCode("createCallKd");
 
         dataManager.commit(newTask);
 

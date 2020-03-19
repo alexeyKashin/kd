@@ -5,4 +5,8 @@
         <property name="author" view="_minimal"/>
         <property name="receiver" view="_minimal"/>
     </view>
+    <view entity="kd_Task" name="task-view" extends="_local">
+        <property name="user" view="_local"/>
+        <property name="initiator" view="_local"/>
+    </view>
 </views>

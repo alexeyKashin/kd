@@ -16,6 +16,7 @@
                 <entry key="kd_ExternalSystemRequestSchedulerService"
                        value="ru.kamotive.kd.core.ExternalSystemRequestSchedulerService"/>
                 <entry key="kd_GetActiveInstancesService" value="ru.kamotive.kd.core.GetActiveInstancesService"/>
+                <entry key="kd_TaskService" value="ru.kamotive.kd.core.TaskService"/>
             </map>
         </property>
     </bean>

@@ -1,10 +1,12 @@
 package ru.kamotive.kd.entity;
 
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
 
+@PublishEntityChangedEvents
 @Table(name = "KD_TASK")
 @Entity(name = "kd_Task")
 public class Task extends StandardEntity {
@@ -22,6 +24,40 @@ public class Task extends StandardEntity {
 
     @Column(name = "SUMMARY")
     protected String summary;
+
+    @Column(name = "BP_CODE")
+    protected String bpCode;
+
+    @Column(name = "TASK_CODE")
+    protected String taskCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "INITIATOR_ID")
+    protected User initiator;
+
+    public User getInitiator() {
+        return initiator;
+    }
+
+    public void setInitiator(User initiator) {
+        this.initiator = initiator;
+    }
+
+    public String getTaskCode() {
+        return taskCode;
+    }
+
+    public void setTaskCode(String taskCode) {
+        this.taskCode = taskCode;
+    }
+
+    public String getBpCode() {
+        return bpCode;
+    }
+
+    public void setBpCode(String bpCode) {
+        this.bpCode = bpCode;
+    }
 
     public String getSummary() {
         return summary;

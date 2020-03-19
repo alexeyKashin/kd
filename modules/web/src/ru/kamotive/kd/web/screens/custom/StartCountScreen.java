@@ -40,30 +40,9 @@ public class StartCountScreen extends Screen {
         newTask.setSummary("Получение исходных данных");
         newTask.setDescription("Получение исходных данных");
         newTask.setState(TaskStatusEnum.NEW);
-
-        dataManager.commit(newTask);
-
-        newTask = metadata.create(Task.class);
-        newTask.setUser(executorField.getValue());
-        newTask.setSummary("Проведение расчета");
-        newTask.setDescription("Проведение расчета");
-        newTask.setState(TaskStatusEnum.NEW);
-
-        dataManager.commit(newTask);
-
-        newTask = metadata.create(Task.class);
-        newTask.setUser(executorField.getValue());
-        newTask.setSummary("Выгрузка результатов");
-        newTask.setDescription("Выгрузка результатов");
-        newTask.setState(TaskStatusEnum.NEW);
-
-        dataManager.commit(newTask);
-
-        newTask = metadata.create(Task.class);
-        newTask.setUser(userSession.getCurrentOrSubstitutedUser());
-        newTask.setSummary("Приемка результата");
-        newTask.setDescription("Приемка результата");
-        newTask.setState(TaskStatusEnum.NEW);
+        newTask.setInitiator(userSession.getCurrentOrSubstitutedUser());
+        newTask.setBpCode("count");
+        newTask.setTaskCode("getData");
 
         dataManager.commit(newTask);
 
