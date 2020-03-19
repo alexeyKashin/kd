@@ -46,7 +46,6 @@ public class KdExchangeReceiverBrowse extends StandardLookup<KdExchange> {
 
             viewFileBrowse.setProcessName("Передача КД");
             viewFileBrowse.setFileString(kdExchange.getDocumentLinks());
-            viewFileBrowse.setFileString("c:/temp/kamotivFiles/Kronshtein_Geom.html,c:/temp/kamotivFiles/model1.prt,c:/temp/kamotivFiles/images_preview.qaf,c:/temp/kamotivFiles/qafmetadata.qaf,c:/temp/kamotivFiles/MODEL$.jt");
             viewFileBrowse.show();
         } else {
             notifications.create().withCaption("Доставка данных еще не выполнена!").show();
