@@ -30,7 +30,7 @@
                 <action id="edit" type="edit"/>
                 <action id="refresh" type="refresh"/>
                 <action id="excel" type="excel"/>
-                <action id="showData"/>
+                <action id="showData" trackSelection="true"/>
             </actions>
             <columns>
                 <column id="author"/>
